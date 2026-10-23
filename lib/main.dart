@@ -9,7 +9,7 @@ class MonWatsapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Home());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: const Home());
   }
 }
 
@@ -20,106 +20,132 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Clone Watsapp"),
-        backgroundColor: Color(0xFF075E54),
+        title: const Text("Clone Watsapp"),
+        backgroundColor: const Color.fromARGB(255, 13, 139, 45),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.more_vert),
-            color: Colors.white,
+            icon: const Icon(Icons.more_vert, color: Colors.white),
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.search),
-            color: Colors.white,
+            icon: const Icon(Icons.search, color: Colors.white),
           ),
         ],
       ),
-
-      // il permet de creer la sidebare mon app
       drawer: Drawer(
-        surfaceTintColor: const Color.fromARGB(255, 3, 168, 53),
+        surfaceTintColor: Color.fromARGB(255, 13, 139, 45),
         backgroundColor: Colors.white,
         child: ListView(
-          children: const [
+          children: [
             DrawerHeader(child: Center(child: Text('Menu'))),
-            ListTile(leading: Icon(Icons.person), title: Text('Profile')),
-            ListTile(leading: Icon(Icons.home), title: Text('Acceuill')),
+            ListTile(leading: Icon(Icons.person), title: Text('Profil')),
+            ListTile(leading: Icon(Icons.home), title: Text('Accueil')),
             ListTile(leading: Icon(Icons.settings), title: Text('Réglages')),
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color(0xFF075E54),
-        items: [
+        backgroundColor: const Color.fromARGB(255, 5, 8, 6),
+        items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.white),
+            backgroundColor: Color.fromARGB(255, 5, 8, 6),
+            icon: Icon(Icons.chat_rounded, color: Colors.white),
             label: 'Accueil',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Colors.white),
+            backgroundColor: Color.fromARGB(255, 5, 8, 6),
+            icon: Icon(Icons.flip_camera_android_sharp, color: Colors.white),
+            label: 'Accueil',
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Color.fromARGB(255, 5, 8, 6),
+            icon: Icon(Icons.people_outline, color: Colors.white),
+            label: 'Accueil',
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Color.fromARGB(255, 5, 8, 6),
+            icon: Icon(Icons.phone, color: Colors.white),
             label: 'Profil',
           ),
         ],
       ),
-
-      // boutton de recherche
       floatingActionButton: FloatingActionButton(
         elevation: 0,
-        backgroundColor: Color(0xFF075E54),
+        backgroundColor: const Color.fromARGB(255, 13, 139, 45),
         onPressed: () {},
-        child: Icon(Icons.search, color: Colors.white),
+        child: const Icon(Icons.add_box, color: Colors.white),
       ),
-
-      // le contenue
-      body: ListView(
-        children: [
-          Discusion(),
-          ListTile(leading: Icon(Icons.person), title: Text('Koffi')),
-          ListTile(leading: Icon(Icons.person), title: Text('Abdoulaye')),
-        ],
-      ),
+      body: const ConversationList(),
     );
   }
 }
 
-class Discusion extends StatelessWidget {
-  const Discusion({super.key});
+class ConversationList extends StatelessWidget {
+  const ConversationList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      SizedBox({width: 20, height:100}),
+    return ListView(
+      children: const [
+        ConversationItem(name: 'Maman', time: '11:30'),
+        ConversationItem(name: 'Koffi', time: '10:15'),
+        ConversationItem(name: 'Abdoulaye', time: '09:42'),
+        ConversationItem(name: 'Maman', time: '11:30'),
+        ConversationItem(name: 'Koffi', time: '10:15'),
+        ConversationItem(name: 'Abdoulaye', time: '09:42'),
+        ConversationItem(name: 'Maman', time: '11:30'),
+        ConversationItem(name: 'Koffi', time: '10:15'),
+        ConversationItem(name: 'Abdoulaye', time: '09:42'),
+        ConversationItem(name: 'Maman', time: '11:30'),
+        ConversationItem(name: 'Koffi', time: '10:15'),
+        ConversationItem(name: 'Abdoulaye', time: '09:42'),
+        ConversationItem(name: 'Maman', time: '11:30'),
+        ConversationItem(name: 'Koffi', time: '10:15'),
+        ConversationItem(name: 'Abdoulaye', time: '09:42'),
+        ConversationItem(name: 'Maman', time: '11:30'),
+        ConversationItem(name: 'Koffi', time: '10:15'),
+        ConversationItem(name: 'Abdoulaye', time: '09:42'),
+        ConversationItem(name: 'Maman', time: '11:30'),
+        ConversationItem(name: 'Koffi', time: '10:15'),
+        ConversationItem(name: 'Abdoulaye', time: '09:42'),
+        ConversationItem(name: 'Maman', time: '11:30'),
+        ConversationItem(name: 'Koffi', time: '10:15'),
+        ConversationItem(name: 'Abdoulaye', time: '09:42'),
+        ConversationItem(name: 'Maman', time: '11:30'),
+        ConversationItem(name: 'Koffi', time: '10:15'),
+        ConversationItem(name: 'Abdoulaye', time: '09:42'),
+      ],
+    );
+  }
+}
 
-      // color: Colors.blue,
-      // child: Row(spacing: 50.3, children: [Profile(), Profile()]),
-      child: ListView(
-        children: [
-          ListTile(
-            leading: Profile(),
-            title: Text('Maman'),
-            trailing: Text("11:30"),
-          ),
-          ListTile(
-            leading: Profile(),
-            title: Text('ABDOULAYE'),
-            trailing: Text("11:30"),
-          ),
-        ],
-      ),
+class ConversationItem extends StatelessWidget {
+  final String name;
+  final String time;
+
+  const ConversationItem({super.key, required this.name, required this.time});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Profile(logo: name.substring(0, 2)),
+      title: Text(name),
+      trailing: Text(time),
     );
   }
 }
 
 class Profile extends StatelessWidget {
-  const Profile({super.key});
+  final String logo;
+
+  const Profile({super.key, required this.logo});
 
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      // avatar à gauche
-      backgroundColor: const Color.fromARGB(255, 12, 202, 59),
-      child: Text('JD', style: TextStyle(color: Colors.white)),
+      backgroundColor: const Color.fromARGB(255, 28, 86, 194),
+      child: Text(logo, style: TextStyle(color: Colors.white)),
     );
   }
 }
